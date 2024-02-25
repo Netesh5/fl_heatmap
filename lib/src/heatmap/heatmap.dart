@@ -107,7 +107,9 @@ class _HeatmapState extends State<Heatmap> {
                   widget.heatmapData.rows[i],
                   height: boxHeightWithMargin,
                   padding: const EdgeInsets.only(right: 4),
-                  style: Theme.of(context).textTheme.bodyMedium,
+                  style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                        color: Colors.white,
+                      ),
                 ),
             ],
           ),
@@ -251,7 +253,9 @@ class _HeatmapState extends State<Heatmap> {
                                 ? boxHeightWithMargin *
                                     _borderThicknessInPercent // size of one margin
                                 : 0),
-                        style: Theme.of(context).textTheme.bodyMedium,
+                        style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                              color: Colors.white,
+                            ),
                       ),
                   ],
                 )

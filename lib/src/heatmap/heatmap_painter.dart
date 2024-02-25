@@ -71,12 +71,13 @@ class HeatmapPainter extends CustomPainter {
           paint,
         );
         _drawOverlay(
-            style: items[i].style,
-            canvas: canvas,
-            left: left,
-            top: top,
-            width: width,
-            height: height);
+          style: items[i].style,
+          canvas: canvas,
+          left: left,
+          top: top,
+          width: width,
+          height: height,
+        );
       } else {
         final paint = Paint()
           ..color = items.length == i ? Colors.transparent : items[i].color;
