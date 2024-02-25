@@ -39,6 +39,7 @@ class HeatmapItem {
     this.xAxisLabel,
     this.yAxisLabel,
     this.style = HeatmapItemStyle.filled,
+    required this.textStyle,
   });
 
   /// Value used for cell color
@@ -56,6 +57,8 @@ class HeatmapItem {
 
   /// Label on the left vertical axis, e.g. the year
   final String? yAxisLabel;
+
+  final TextStyle? textStyle;
 }
 
 enum HeatmapItemStyle {

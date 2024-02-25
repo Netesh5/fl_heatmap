@@ -103,9 +103,12 @@ class _HeatmapState extends State<Heatmap> {
                           : min(widget.rowsVisible!,
                               widget.heatmapData.rows.length));
                   i++)
-                RowLabel(widget.heatmapData.rows[i],
-                    height: boxHeightWithMargin,
-                    padding: const EdgeInsets.only(right: 4)),
+                RowLabel(
+                  widget.heatmapData.rows[i],
+                  height: boxHeightWithMargin,
+                  padding: const EdgeInsets.only(right: 4),
+                  style: Theme.of(context).textTheme.bodyMedium,
+                ),
             ],
           ),
 
@@ -240,13 +243,16 @@ class _HeatmapState extends State<Heatmap> {
                 Row(
                   children: [
                     for (int i = 0; i < columns; i++)
-                      RowLabel(widget.heatmapData.columns[i],
-                          withoutMargin: i == columns - 1,
-                          width: boxHeightWithMargin -
-                              (i == columns - 1
-                                  ? boxHeightWithMargin *
-                                      _borderThicknessInPercent // size of one margin
-                                  : 0)),
+                      RowLabel(
+                        widget.heatmapData.columns[i],
+                        withoutMargin: i == columns - 1,
+                        width: boxHeightWithMargin -
+                            (i == columns - 1
+                                ? boxHeightWithMargin *
+                                    _borderThicknessInPercent // size of one margin
+                                : 0),
+                        style: Theme.of(context).textTheme.bodyMedium,
+                      ),
                   ],
                 )
             ],
