@@ -100,7 +100,8 @@ class _HeatmapState extends State<Heatmap> {
                   i <
                       (showAll
                           ? widget.heatmapData.rows.length
-                          : min(widget.rowsVisible!, widget.heatmapData.rows.length));
+                          : min(widget.rowsVisible!,
+                              widget.heatmapData.rows.length));
                   i++)
                 RowLabel(widget.heatmapData.rows[i],
                     height: boxHeightWithMargin,
@@ -112,8 +113,9 @@ class _HeatmapState extends State<Heatmap> {
         Expanded(child: LayoutBuilder(builder: (context, constraints) {
           final fullWidth = constraints.maxWidth;
 
-          final int rows =
-              showAll ? widget.heatmapData.rows.length : min(widget.rowsVisible!, widget.heatmapData.rows.length);
+          final int rows = showAll
+              ? widget.heatmapData.rows.length
+              : min(widget.rowsVisible!, widget.heatmapData.rows.length);
           final int columns = widget.heatmapData.columns.length;
 
           final double spaceForRects = fullWidth;
@@ -220,7 +222,9 @@ class _HeatmapState extends State<Heatmap> {
                 height: usedHeight,
                 child: listener,
               ),
-              if (!showAll && widget.rowsVisible != null && widget.heatmapData.rows.length > widget.rowsVisible!)
+              if (!showAll &&
+                  widget.rowsVisible != null &&
+                  widget.heatmapData.rows.length > widget.rowsVisible!)
                 Center(
                   child: InkWell(
                       child: widget.showAll ??
@@ -268,6 +272,7 @@ class RowLabel extends StatelessWidget {
       this.height,
       this.width,
       this.padding,
+      this.style,
       this.withoutMargin = true})
       : super(key: key);
 
@@ -278,6 +283,8 @@ class RowLabel extends StatelessWidget {
   final double? height, width;
 
   final EdgeInsets? padding;
+
+  final TextStyle? style;
 
   @override
   Widget build(BuildContext context) {
@@ -302,7 +309,7 @@ class RowLabel extends StatelessWidget {
               maxLines: 1,
               overflow: TextOverflow.clip,
               textAlign: TextAlign.center,
-              style: Theme.of(context).textTheme.bodySmall,
+              style: style ?? Theme.of(context).textTheme.bodySmall,
             ),
           ),
         ));
