@@ -39,7 +39,7 @@ class HeatmapItem {
     this.xAxisLabel,
     this.yAxisLabel,
     this.style = HeatmapItemStyle.filled,
-    required this.textStyle,
+    this.textStyle,
   });
 
   /// Value used for cell color
